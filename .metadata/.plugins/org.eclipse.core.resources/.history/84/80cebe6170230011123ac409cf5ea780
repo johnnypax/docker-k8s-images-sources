@@ -1,0 +1,5 @@
+package dev.archety.studentmanager.exception;
+
+public class StudentNotFoundException {
+
+}

@@ -1,0 +1,3 @@
+package dev.archety.studentmanager.repository;
+
+InMemoryStudentRepository

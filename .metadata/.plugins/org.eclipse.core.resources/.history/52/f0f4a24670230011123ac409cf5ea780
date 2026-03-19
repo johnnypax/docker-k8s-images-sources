@@ -1,0 +1,5 @@
+package dev.archety.studentmanager.config;
+
+public class DataSeeder {
+
+}

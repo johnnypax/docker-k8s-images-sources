@@ -1,0 +1,18 @@
+package dev.archety.studentmanager.dto;
+
+public class StudentStatusUpdateRequest {
+
+    @NotNull(message = "Status is required")
+    private StudentStatus status;
+
+    public StudentStatusUpdateRequest() {
+    }
+
+    public StudentStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(StudentStatus status) {
+        this.status = status;
+    }
+}

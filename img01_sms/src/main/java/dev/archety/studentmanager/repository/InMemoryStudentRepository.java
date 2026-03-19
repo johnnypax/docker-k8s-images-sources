@@ -1,0 +1,66 @@
+package dev.archety.studentmanager.repository;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
+
+import org.springframework.stereotype.Repository;
+
+import dev.archety.studentmanager.model.Student;
+import dev.archety.studentmanager.model.StudentStatus;
+
+@Repository
+public class InMemoryStudentRepository {
+
+    private final Map<Long, Student> database = new ConcurrentHashMap<>();
+    private final AtomicLong idGenerator = new AtomicLong(0);
+
+    public List<Student> findAll() {
+        return database.values()
+                .stream()
+                .sorted(Comparator.comparing(Student::getId))
+                .toList();
+    }
+
+    public Optional<Student> findById(Long id) {
+        return Optional.ofNullable(database.get(id));
+    }
+
+    public Student save(Student student) {
+        if (student.getId() == null) {
+            student.setId(idGenerator.incrementAndGet());
+        }
+        database.put(student.getId(), student);
+        return student;
+    }
+
+    public void deleteById(Long id) {
+        database.remove(id);
+    }
+
+    public boolean existsById(Long id) {
+        return database.containsKey(id);
+    }
+
+    public long count() {
+        return database.size();
+    }
+
+    public List<Student> search(String course, StudentStatus status) {
+        List<Student> students = new ArrayList<>(database.values());
+
+        return students.stream()
+                .filter(student -> course == null || student.getCourse().equalsIgnoreCase(course))
+                .filter(student -> status == null || student.getStatus() == status)
+                .sorted(Comparator.comparing(Student::getId))
+                .toList();
+    }
+
+    public void clear() {
+        database.clear();
+    }
+}

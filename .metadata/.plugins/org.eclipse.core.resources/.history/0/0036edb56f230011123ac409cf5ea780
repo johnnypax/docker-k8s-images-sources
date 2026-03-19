@@ -1,0 +1,5 @@
+package dev.archety.studentmanager.model;
+
+public class Student {
+
+}
