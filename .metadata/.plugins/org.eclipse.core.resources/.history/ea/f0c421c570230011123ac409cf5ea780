@@ -1,5 +1,0 @@
-package dev.archety.studentmanager.dto;
-
-public class StudentStatusUpdateRequest {
-
-}

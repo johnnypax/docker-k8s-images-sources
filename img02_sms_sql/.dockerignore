@@ -1,0 +1,122 @@
+############################################
+# GENERAL
+############################################
+
+# Logs
+*.log
+logs/
+*.out
+*.err
+
+# Temp files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+############################################
+# JAVA / MAVEN
+############################################
+
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Build output
+*.class
+*.jar
+*.war
+*.ear
+
+# Dependency directories
+dependency-reduced-pom.xml
+
+############################################
+# SPRING BOOT
+############################################
+
+# Application logs
+spring.log
+
+############################################
+# DOCKER
+############################################
+
+# Docker override files (local only)
+docker-compose.override.yml
+
+# Local env files
+.env
+.env.local
+
+############################################
+# KUBERNETES
+############################################
+
+# Local kube config (NON versionare mai)
+.kube/
+kubeconfig*
+*.kubeconfig
+
+# Helm (se in futuro lo usi)
+charts/*/charts/
+charts/*/tmp/
+*.tgz
+
+############################################
+# IDE - INTELLIJ
+############################################
+
+.idea/
+*.iml
+
+############################################
+# IDE - VSCODE
+############################################
+
+.vscode/
+
+############################################
+# IDE - ECLIPSE
+############################################
+
+.project
+.classpath
+.settings/
+
+############################################
+# NODE (se aggiungi frontend in futuro)
+############################################
+
+node_modules/
+dist/
+build/
+
+############################################
+# TEST / COVERAGE
+############################################
+
+coverage/
+*.lcov
+
+############################################
+# DOCKER BUILD CONTEXT (OPZIONALE)
+############################################
+
+# Evita di includere roba inutile nei build context
+.git
+.gitignore
+
+############################################
+# SPECIFICO PROGETTO
+############################################
+
+# Se vuoi ignorare roba specifica dentro img01_sms
+img01_sms/target/
+img01_sms/.idea/
+img01_sms/*.log
